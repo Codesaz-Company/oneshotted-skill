@@ -2,7 +2,7 @@
 # Oneshotted skill: install it for your coding agents and sign in, in one go.
 #   curl -fsSL https://oneshotted.io/install.sh | sh
 # What it does (nothing else, no sudo):
-#   1. downloads the skill (a tagged release of https://github.com/GovarJabbar/oneshotted-skill)
+#   1. downloads the skill (a tagged release of https://github.com/Codesaz-Company/oneshotted-skill)
 #   2. installs it for the agents the `skills` CLI finds (Claude Code, Codex, Cursor...), or into
 #      ~/.claude/skills/oneshotted when Node isn't available (ONESHOTTED_NO_NPX=1 skips the CLI)
 #   3. signs you in to Oneshotted in your browser (a free account works), unless you already are
@@ -11,8 +11,8 @@
 set -eu
 
 main() {
-  REPO="GovarJabbar/oneshotted-skill"
-  REF="${ONESHOTTED_REF:-v0.1.0}"
+  REPO="Codesaz-Company/oneshotted-skill"
+  REF="${ONESHOTTED_REF:-v0.1.1}"
   TARBALL="https://codeload.github.com/$REPO/tar.gz/refs/tags/$REF"
   CLAUDE_DIR="${CLAUDE_CONFIG_DIR:-$HOME/.claude}"
   CONF="$HOME/.config/oneshotted"

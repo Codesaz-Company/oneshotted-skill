@@ -2,7 +2,7 @@
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "oneshotted",
   "displayName": "oneshotted",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Make premium motion graphics and videos with code, grounded in 5,000+ real AI-made pieces and the exact prompts behind them.",
   "author": {
     "name": "Oneshotted",
@@ -19,5 +19,6 @@
     "gsap",
     "animation",
     "prompts"
-  ]
+  ],
+  "repository": "https://github.com/Codesaz-Company/oneshotted-skill"
 }

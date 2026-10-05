@@ -15,7 +15,7 @@ It installs the skill for your coding agents (Claude Code, Codex, Cursor and oth
 Prefer to do it by hand?
 
 ```bash
-npx skills add GovarJabbar/oneshotted-skill -g     # install for your agents
+npx skills add Codesaz-Company/oneshotted-skill -g     # install for your agents
 python3 ~/.claude/skills/oneshotted/scripts/library.py login   # sign in once
 ```
 
