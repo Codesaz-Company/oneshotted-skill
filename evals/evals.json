@@ -1,0 +1,43 @@
+{
+  "skill_name": "oneshotted",
+  "evals": [
+    {
+      "id": 1,
+      "name": "games-promo-x",
+      "prompt": "Make a 20-second promo for X (Twitter) about games one-shotted by AI, for oneshotted.io. Use real game clips from the Oneshotted library. 1920x1080. It has to grab people in the first second.",
+      "expectations": [
+        "A final MP4 exists at 1920x1080, 18-22 s long",
+        "scripts/check.py passes (moving by 0.43 s, no held first second, no dead hold over 1.6 s, no black frames, no flashes)",
+        "research/refs.md names 2-3 library references with @creator and link, and what each contributed",
+        "The first frame is real footage in motion, not a title card or black",
+        "No hard-ban patterns on any frame (eyebrow labels, 'Introducing', neon glow, multi-hue gradients, glassmorphism, sparkles, bouncy overshoot)",
+        "On-screen copy is short (no line over ~6 words) and every number shown is true",
+        "The final message credits the referenced creators"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "feature-loop-no-key",
+      "prompt": "Make a 10-second seamless loop for a landing page showing a todo app's new 'smart reschedule' feature moving overdue tasks to the right day. Muted autoplay. Remotion.",
+      "setup": "No ONESHOTTED_API_KEY set.",
+      "expectations": [
+        "The skill says the library step was skipped because no key is set, and continues",
+        "A 10 s 1920x1080 MP4 exists and loops (last frame flows into the first)",
+        "scripts/check.py passes",
+        "The proof shows rescheduling to specific days, not just a list reorder",
+        "Reads with the sound off; no hard-ban patterns"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "logo-reveal-fast",
+      "prompt": "5-second logo reveal for a coffee brand called Ember & Oak. HyperFrames or Remotion, your choice.",
+      "expectations": [
+        "A 5 s MP4 exists; check.py passes (a sting may hold its final 1.5-2 s as the end card)",
+        "The library step finds and credits at least one logo-reveal reference",
+        "Ember & Oak's brand colours are invented within the bans (or the skill records why it uses a banned hue as the brand's own)",
+        "The final frame is a clean, legible lockup"
+      ]
+    }
+  ]
+}

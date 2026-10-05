@@ -1,0 +1,37 @@
+MIT License
+
+Copyright (c) 2026 Oneshotted
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+Third-party portions (adapted text and ideas, each under its own license; full texts in LICENSES/):
+
+- skills/oneshotted/references/taste.md, the measured pacing norms in SKILL.md and scripts/check.py:
+  adapted from Cinetic, https://github.com/Leonxlnx/cinetic, MIT, Copyright (c) 2026 Leonxlnx
+  (LICENSES/MIT-cinetic.txt).
+- skills/oneshotted/references/critic.md: adapted from motion-video-kit,
+  https://github.com/echris6/motion-video-kit, MIT, Copyright (c) 2026 echris6 (LICENSES/MIT-motion-video-kit.txt).
+- The truth list in skills/oneshotted/references/motion.md: adapted from product-launch-motion,
+  https://github.com/AbubakrChan/product-launch-motion, MIT, Copyright (c) 2026 Abubakr Chan
+  (LICENSES/MIT-product-launch-motion.txt).
+- The guardrails, build/breathe/resolve and transition sections of skills/oneshotted/references/motion.md:
+  adapted and modified from HyperFrames' motion-principles.md, https://github.com/heygen-com/hyperframes,
+  Copyright 2026 HeyGen, Inc., Apache License 2.0 (LICENSES/Apache-2.0.txt). Those portions remain under the
+  Apache License 2.0.

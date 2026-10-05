@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "oneshotted",
+  "displayName": "oneshotted",
+  "version": "0.1.0",
+  "description": "Make premium motion graphics and videos with code, grounded in 5,000+ real AI-made pieces and the exact prompts behind them.",
+  "author": {
+    "name": "Oneshotted",
+    "url": "https://oneshotted.io"
+  },
+  "homepage": "https://oneshotted.io",
+  "license": "MIT AND Apache-2.0",
+  "keywords": [
+    "video",
+    "motion-design",
+    "launch-video",
+    "remotion",
+    "hyperframes",
+    "gsap",
+    "animation",
+    "prompts"
+  ]
+}

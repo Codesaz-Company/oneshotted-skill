@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "oneshotted",
+  "owner": {"name": "Oneshotted", "url": "https://oneshotted.io"},
+  "description": "Motion graphics and videos from code, grounded in real references and prompts.",
+  "plugins": [{"name": "oneshotted", "source": "./", "description": "Make premium motion graphics and videos with code, grounded in real AI-made pieces and their prompts."}]
+}
