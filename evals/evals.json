@@ -8,9 +8,9 @@
       "expectations": [
         "A final MP4 exists at 1920x1080, 18-22 s long",
         "scripts/check.py passes (moving by 0.43 s, no held first second, no dead hold over 1.6 s, no black frames, no flashes)",
-        "research/refs.md names 2-3 library references with @creator and link, and what each contributed",
-        "The first frame is real footage in motion, not a title card or black",
-        "No hard-ban patterns on any frame (eyebrow labels, 'Introducing', neon glow, multi-hue gradients, glassmorphism, sparkles, bouncy overshoot)",
+        "research/refs.md names the library reference used with @creator and link, and what it contributed",
+        "The first 2-3 s show the Oneshotted logo, name and one-line description, moving; the last 2-3 s close on the brand",
+        "No hard-ban patterns on any frame ('Introducing', neon glow, multi-hue gradients, glassmorphism, sparkles, bouncy overshoot)",
         "On-screen copy is short (no line over ~6 words) and every number shown is true",
         "The final message credits the referenced creators"
       ]
@@ -37,6 +37,20 @@
         "The library step finds and credits at least one logo-reveal reference",
         "Ember & Oak's brand colours are invented within the bans (or the skill records why it uses a banned hue as the brand's own)",
         "The final frame is a clean, legible lockup"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "url-launch-vs-plain",
+      "prompt": "Make a launch video for https://botsaz.co",
+      "expectations": [
+        "research/capture/ exists, and research/capture/CLAUDE.md, AGENTS.md and .cursorrules were deleted",
+        "BRIEF.md has a Brand look taken from the capture (background, accent hexes, the site's font, the logo file)",
+        "PLAN.md lists the beats as brand \u2192 problem/promise \u2192 feature pairs (information beat, then show beat) \u2192 brand, each with its title and subtitle",
+        "The first 2-3 s show the logo, name and one-line description on the brand's background; the last 2-3 s are the brand again",
+        "Every product screen in the film is introduced by a title (and a subtitle), large enough to read at 480 px wide",
+        "scripts/check.py passes",
+        "In a blind side-by-side against plain Opus at the same effort on the same prompt, a neutral judge prefers this film"
       ]
     }
   ]

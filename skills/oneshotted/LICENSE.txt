@@ -26,6 +26,9 @@ Third-party portions (adapted text and ideas, each under its own license; full t
 - skills/oneshotted/references/taste.md, the measured pacing norms in SKILL.md and scripts/check.py:
   adapted from Cinetic, https://github.com/Leonxlnx/cinetic, MIT, Copyright (c) 2026 Leonxlnx
   (LICENSES/MIT-cinetic.txt).
+- skills/oneshotted/assets/kit/motion.ts and assets/kit/Cursor.tsx: adapted and modified from Cinetic's
+  remotion-starter (src/lib/anim.ts, src/lib/camera.ts, src/fx/Cursor.tsx), MIT, Copyright (c) 2026 Leonxlnx
+  (assets/kit/LICENSE-cinetic.txt, LICENSES/MIT-cinetic.txt).
 - skills/oneshotted/references/critic.md: adapted from motion-video-kit,
   https://github.com/echris6/motion-video-kit, MIT, Copyright (c) 2026 echris6 (LICENSES/MIT-motion-video-kit.txt).
 - The truth list in skills/oneshotted/references/motion.md: adapted from product-launch-motion,

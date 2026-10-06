@@ -17,7 +17,7 @@ Search and similar keep only those pieces; recipe drops any other prompt (rebuil
 Authentication, same as the Oneshotted MCP: sign in once with `login` (OAuth in your browser; the token is kept in
 ~/.config/oneshotted/token.json, readable only by you, and refreshed automatically), or set an API key from
 https://oneshotted.io/mcp-docs in ONESHOTTED_API_KEY (or ~/.config/oneshotted/key). Calls count toward your account.
-Standard library only. Free plan: 30 recipe/frames calls a day, so pick 2-4 references, not 20.
+Standard library only. Free plan: 30 recipe/frames calls a day, so pick 1-2 references, not 20.
 """
 import argparse, base64, hashlib, http.server, json, os, pathlib, secrets, sys, tempfile, threading, time, urllib.error, urllib.parse, urllib.request, webbrowser
 
@@ -25,7 +25,7 @@ ENDPOINT = os.environ.get('ONESHOTTED_ENDPOINT', 'https://oneshotted.io/mcp')
 SITE = urllib.parse.urlsplit(ENDPOINT)._replace(path='', query='', fragment='').geturl()
 CONF = pathlib.Path.home() / '.config/oneshotted'
 TOKEN = CONF / 'token.json'
-UA = {'User-Agent': 'oneshotted-skill/1.0'}
+UA = {'User-Agent': 'oneshotted-skill/0.3.0'}
 
 
 def post_form(url, data):
@@ -166,7 +166,7 @@ def call(tool, args):
     body = json.dumps({'jsonrpc': '2.0', 'id': 1, 'method': 'tools/call', 'params': {'name': tool, 'arguments': args}}).encode()
     req = urllib.request.Request(ENDPOINT, data=body, method='POST', headers={
         'Content-Type': 'application/json', 'Accept': 'application/json, text/event-stream',
-        'Authorization': 'Bearer ' + key(), 'User-Agent': 'oneshotted-skill/1.0'})
+        'Authorization': 'Bearer ' + key(), 'User-Agent': 'oneshotted-skill/0.3.0'})
     try:
         with urllib.request.urlopen(req, timeout=60) as r:
             raw = r.read().decode()

@@ -1,6 +1,6 @@
 # Motion: the guardrails agents break without being told
 
-Read before Step 4 (build). Adapted and modified from HyperFrames' `motion-principles.md` (https://github.com/heygen-com/hyperframes, Copyright 2026 HeyGen, Inc., Apache-2.0) and Cinetic's craft rules (https://github.com/Leonxlnx/cinetic, MIT).
+Read before step 5 (build). Adapted and modified from HyperFrames' `motion-principles.md` (https://github.com/heygen-com/hyperframes, Copyright 2026 HeyGen, Inc., Apache-2.0) and Cinetic's craft rules (https://github.com/Leonxlnx/cinetic, MIT).
 
 ## Guardrails
 - **Vary the ease.** At most 2 moves in a scene share an ease. Pick it like an adverb: a fast decelerating out-curve reads confident, a sine in-out dreamy, a spring playful (and only on a true landing).
