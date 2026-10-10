@@ -60,8 +60,8 @@ export const track = (frame: number, keys: [number, Shot][], ease: Ease = E.cam)
   }
   return cur;
 };
-/** Multiply k by this inside a hold: a slow push (+2.5% over the hold). */
-export const breath = (frame: number, from: number, to: number, amount = 0.025) => 1 + amount * prog(frame, from, to, E.linear);
+/** Multiply k by this inside a hold: a slow push (+10% over the hold by default). Alone it reads as still to check.py: pair it with a move of ≥ 3 px a frame. */
+export const breath = (frame: number, from: number, to: number, amount = 0.1) => 1 + amount * prog(frame, from, to, E.linear);
 /** Style for the world container. Lay the world out at left 0, top 0 in world px; all movement is this one transform. */
 export const camera = (s: Shot): React.CSSProperties => ({
   position: 'absolute', left: 0, top: 0, transformOrigin: '0 0',

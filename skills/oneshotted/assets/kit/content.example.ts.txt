@@ -1,0 +1,15 @@
+// Copy to src/content.ts and replace everything with the product's own words, colours, logo and screens.
+// Real copy from the site only (the truth list): no invented numbers. Leave out `proof` if the site has no real number.
+import type { Spec } from './kit/Film';
+import { ExampleInbox } from './kit/ExampleInbox'; // an example show component: replace it with this product's surface
+
+export const C: Spec = {
+  brand: { name: 'Acme', line: 'Every reply, in one inbox.', bg: '#0d0f14', ink: '#ffffff', accent: '#7c5cff', font: 'Inter, system-ui, sans-serif' },
+  problem: { title: 'Five apps. One team.', sub: 'Messages get lost between them.' },
+  features: [
+    { title: 'One inbox for every channel', sub: 'Email, chat and social, side by side.', show: ExampleInbox },
+    { title: 'Reply in seconds', sub: 'Suggested answers from your own docs.', show: { img: 'shot-2.png' } },
+  ],
+  proof: { value: 12000, label: 'teams answer faster with Acme', suffix: '+' },
+  cta: { text: 'Start free', url: 'acme.com' },
+};

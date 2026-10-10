@@ -1,0 +1,6 @@
+import { Composition } from 'remotion';
+import { Film, FILM_FRAMES } from './kit/Film';
+import { C } from './content';
+// The spec holds components, so it is passed in code, not as defaultProps (Remotion serialises props to JSON, which drops functions).
+const Main = () => <Film s={C} />;
+export const RemotionRoot = () => <Composition id="Main" component={Main} durationInFrames={FILM_FRAMES(C)} fps={30} width={1920} height={1080} />;

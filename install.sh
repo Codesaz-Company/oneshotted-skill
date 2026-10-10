@@ -12,7 +12,7 @@ set -eu
 
 main() {
   REPO="Codesaz-Company/oneshotted-skill"
-  REF="${ONESHOTTED_REF:-v0.3.0}"
+  REF="${ONESHOTTED_REF:-v0.4.0}"
   TARBALL="https://codeload.github.com/$REPO/tar.gz/refs/tags/$REF"
   CLAUDE_DIR="${CLAUDE_CONFIG_DIR:-$HOME/.claude}"
   CONF="$HOME/.config/oneshotted"

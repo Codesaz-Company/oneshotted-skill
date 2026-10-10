@@ -35,3 +35,26 @@ Third-party portions (adapted text and ideas, each under its own license; full t
   adapted and modified from HyperFrames' motion-principles.md, https://github.com/heygen-com/hyperframes,
   Copyright 2026 HeyGen, Inc., Apache License 2.0 (LICENSES/Apache-2.0.txt). Those portions remain under the
   Apache License 2.0.
+
+- skills/oneshotted/references/sound.md, references/engines.md and the timing, choreography, camera, cut,
+  logo, type, colour and loop sections of references/motion.md, and the severity tiers in references/critic.md:
+  distilled (rewritten, not copied) from these projects, each MIT unless noted (full texts in LICENSES/):
+  - claude-motion, https://github.com/whaleyxbt/claude-motion, Copyright (c) 2026 whaleyxbt (MIT-claude-motion.txt)
+  - claude-motion-design, https://github.com/howseen-ai/claude-motion-design, Copyright (c) 2026 Howseen AI (Raphaël Aubry) (MIT-claude-motion-design.txt)
+  - motion-graphics-skills, https://github.com/charlie947/motion-graphics-skills, Copyright (c) 2026 Charlie Hills (MIT-motion-graphics-skills.txt)
+  - claude-remotion-skill, https://github.com/haidrrrry/claude-remotion-skill, Copyright (c) 2025 haidrrrry (MIT-claude-remotion-skill.txt)
+  - hyperframes-motion-reel-skill, https://github.com/Sunwood-ai-labs/hyperframes-motion-reel-skill, Copyright (c) 2026 Sunwood AI Labs (MIT-hyperframes-motion-reel-skill.txt)
+  - product-launch-motion, https://github.com/AbubakrChan/product-launch-motion, Copyright (c) 2026 Abubakr Chan (MIT-product-launch-motion.txt)
+  - animate, https://github.com/cth9191/animate, Copyright (c) 2026 cth9191 (MIT-animate.txt)
+  - motion-design-skills, https://github.com/iart-ai/motion-design-skills, Copyright (c) 2026 iart.ai (MIT-motion-design-skills.txt)
+  - hyperframes-student-kit, https://github.com/nateherkai/hyperframes-student-kit, Copyright (c) 2026 Nate Herk (MIT-hyperframes-student-kit.txt; its brand assets are excluded and none are used)
+  - gsap-skills, https://github.com/greensock/gsap-skills, Copyright (c) 2026 GreenSock (MIT-gsap-skills.txt)
+  - motion-design-skill, https://github.com/LottieFiles/motion-design-skill, Copyright (c) 2025 LottieFiles (MIT-lottiefiles-motion-design-skill.txt)
+  - motion-graphics (motion-broll), https://github.com/Barty-Bart/motion-graphics, Copyright (c) 2026 Bart (MIT-motion-graphics-broll.txt)
+  - motion-dev-animations-skill, https://github.com/199-biotechnologies/motion-dev-animations-skill, Copyright (c) 2025 199 Biotechnologies (MIT-motion-dev-animations-skill.txt)
+  - awesome-motion-design-agent-skills, https://github.com/frankxai/awesome-motion-design-agent-skills (CC0-1.0, public domain)
+  - HyperFrames, https://github.com/heygen-com/hyperframes, Copyright 2026 HeyGen, Inc. (Apache-2.0, LICENSES/Apache-2.0.txt)
+  Ideas used with the authors' permission, in our own words, no text copied: klik-anim-skill-creation
+  (https://github.com/t3knobox/klik-anim-skill-creation) and Remotion's agent skills (https://github.com/remotion-dev/skills).
+  Engines named but not bundled: Remotion (its own licence; a Company License for for-profit teams of 4+),
+  GSAP (GreenSock standard licence), Motion (MIT), lottie-web (MIT).

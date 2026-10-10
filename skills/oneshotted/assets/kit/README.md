@@ -5,6 +5,7 @@ your own camera or cursor.
 
 | File | What |
 |---|---|
+| `Film.tsx` | **the template film**: brand → problem → (title, product) × 2 → proof → brand, 19 s, motion that passes check.py. Fill `content.ts`; see `content.example.ts.txt`, `Root.example.tsx.txt`, `ExampleInbox.tsx` |
 | `motion.ts` | easing tokens `E`, `prog`, `stagger`, `rand`, and the camera: `Shot`, `track` (keyed shots), `frameRect` (push in on a rect), `breath`, `camera()` style, `toScreen` |
 | `Cursor.tsx` | a readable pointer (`Cursor`), bowed paths (`cursorArc`), clicks (`pressAt`) |
 | `Browser.tsx` | `Browser` window chrome; `ScrollPlate` for a brief glimpse of a full-page screenshot |

@@ -2,7 +2,7 @@
 name: oneshotted
 description: "Make premium launch videos, promos, product and feature videos, logo reveals, kinetic typography and social clips with code (Remotion, HyperFrames, GSAP, Three.js, canvas). Use whenever the user wants a video or animation built with code, or asks to improve one, even if they only say \"make a video about X\" or give a URL. For a real product it captures the site (logo, fonts, colours, screens), opens and closes on the brand, explains each feature with a title and subtitle before showing it, rebuilds the product UI at video scale in the brand's own style, and checks the render before calling it done. It can also pull one reference, with its creator's verified prompt, from the Oneshotted library of 5,000+ AI-made motion pieces."
 license: "MIT AND Apache-2.0 (complete terms in LICENSE.txt)"
-compatibility: "Needs ffmpeg/ffprobe and Python 3 (standard library only). Remotion needs Node 18+ and Chromium; HyperFrames needs Node and Chromium. Capturing a product site runs the HyperFrames CLI via npx, which downloads a headless Chrome once into ~/.cache/hyperframes. The library steps need a free Oneshotted account: sign in once with `python3 scripts/library.py login`, or set ONESHOTTED_API_KEY (https://oneshotted.io/mcp-docs). Without either, skip step 2 and say so."
+compatibility: "Needs ffmpeg/ffprobe and Python 3 (standard library only). Remotion needs Node 18+ and Chromium; HyperFrames needs Node 22+ and Chromium. Capturing a product site runs the HyperFrames CLI via npx, which downloads a headless Chrome once into ~/.cache/hyperframes. The library steps need a free Oneshotted account: sign in once with `python3 scripts/library.py login`, or set ONESHOTTED_API_KEY (https://oneshotted.io/mcp-docs). Without either, skip step 2 and say so."
 ---
 
 # oneshotted
@@ -35,8 +35,10 @@ These are defaults, not a house style. The colour and decoration bans apply only
 | Step | Read |
 |---|---|
 | 3 Plan | `references/taste.md` (A, B, K groups) |
-| 5 Build | `assets/kit/README.md`, `references/motion.md` (guardrails, determinism, truth list) |
-| 7 Review | `references/critic.md` (prompt for a fresh critic) and search `references/taste.md` by ID or word |
+| 5 Build | `assets/kit/README.md` and the first sections of `references/motion.md` (guardrails, scene structure, transitions, determinism, truth list) |
+| 7 Review | `references/critic.md` and search `references/taste.md` by ID or word |
+
+Only when the job needs it (search them, don't read them whole): `references/engines.md` for an engine other than Remotion, a GIF, a reel or a transparent file; `references/sound.md` when the user wants sound or voice; the later sections of `references/motion.md` for logo reveals, camera moves, cuts, type and loops.
 
 The full catalogue with fixes is `references/taste.md`. Search it rather than reading it whole (`grep -n -i 'glow' references/taste.md`).
 
@@ -45,7 +47,7 @@ The full catalogue with fixes is `references/taste.md`. Search it rather than re
 Every step writes a file; every gate is a check you actually run. Budget: a 20 s film in about 25 minutes. Spend the time on the product's own pixels and on the camera, not on surveys and review rounds.
 
 ### 1. Capture the product → `research/capture/` and `BRIEF.md`
-If the video is for a real product with a site the user gave you, **capture it first**; the site's own pixels are the film's best material. The capture is HeyGen's open-source HyperFrames CLI (Apache-2.0): it loads the page in a headless Chrome (downloaded once into `~/.cache/hyperframes`). For a URL the user didn't give you, ask before running it.
+If the video is for a real product with a site the user gave you, **capture it first**; the site's own pixels are the film's best material. The capture is HeyGen's open-source HyperFrames CLI (Apache-2.0): it loads the page in a headless Chrome (downloaded once into `~/.cache/hyperframes`). Only capture URLs the user gave you; don't go looking for other sites.
 ```bash
 HYPERFRAMES_NO_TELEMETRY=1 DO_NOT_TRACK=1 npx -y hyperframes@0.8.133 capture 'https://example.com' -o research/capture \
   --skip-vision --json --timeout 45000 --capture-budget 60000      # quote the URL; http(s) only; about a minute
@@ -56,7 +58,7 @@ It writes `screenshots/scroll-*.png` (one per viewport) and usually `screenshots
 
 Write BRIEF.md: what it is in one line, the format, and a **Brand look** taken from the capture, not guessed: background (dark or light, flat or gradient, hex), accent hexes, the display font and weights (load the site's own font file from `assets/fonts` or the same Google font), the logo file, and the 2-4 UI surfaces worth showing (with the screenshot file and the region). The film uses that look.
 
-If the request names the subject, format and length, infer the rest and write your assumptions down; otherwise ask at most 3 questions. Defaults: 16:9 1920x1080, 30 fps, 15-20 s for a launch or promo, 6-12 s for a loop. Copy the hard bans into BRIEF.md.
+**Never stop to ask questions: the user may not be there to answer.** Infer what's missing from the request and the site, write each assumption in BRIEF.md, and keep going. Ask only if the user said they want to approve choices. Defaults: 16:9 1920x1080, 30 fps, 15-20 s for a launch or promo, 6-12 s for a loop. Copy the hard bans into BRIEF.md.
 
 ### 2. One look at the library → `research/refs.md` (≤ 5 minutes)
 One search, then at most 2 recipes or frame calls on the best hit:
@@ -65,7 +67,7 @@ python3 scripts/library.py search "<the kind of piece, e.g. saas launch product 
 python3 scripts/library.py recipe <id>        # the creator's own prompt, verified
 python3 scripts/library.py frames <id> --count 3 --out research/frames
 ```
-Take one mechanism (a structure, a transition, a camera idea) and say which; credit the creator. Only verified owner prompts are shown; never quote a prompt a piece doesn't have. If you're not signed in, ask the user to run `python3 scripts/library.py login` once (or set ONESHOTTED_API_KEY); never ask for a key in chat. If the library is unavailable, say so and continue.
+Take one mechanism (a structure, a transition, a camera idea) and say which; credit the creator. Only verified owner prompts are shown; never quote a prompt a piece doesn't have. If you're not signed in or the library is unavailable, skip this step without stopping, and in your final message tell the user they can sign in once with `python3 scripts/library.py login` (or set ONESHOTTED_API_KEY) for references next time. Never ask for a key in chat.
 
 ### 3. Plan → `PLAN.md`
 - One sentence: what the viewer should remember. Show the product's **smart part**: the thing it does that the obvious version doesn't.
@@ -82,28 +84,41 @@ Take one mechanism (a structure, a transition, a camera idea) and say which; cre
 - Copy: titles ≤ 6 words, subtitles ≤ 12 words, large (titles ≥ 80 px, subtitles ≥ 40 px at 1080p). Use the site's own words where they work.
 - **Gate:** for a product, launch or promo film, the first and last beats are brand beats, and every show beat follows or carries a title. For a sting, loop or type piece, row 1 is the piece itself, moving from frame 0.
 
-### 4. Style stills before motion → `out/stills/` (the cheapest fix)
-Copy the kit first (`cp -R <skill>/assets/kit src/kit`, see step 5). Build the look: 4 stills (Remotion: `npx remotion still --frame=<n>`; other engines: render those frames): the brand opening at 2 s (logo, name and description, like a poster you'd post on its own), one information beat (title and subtitle on its background), one show beat (the product with its title or label), and the end card. Tile them next to the site's contact sheet and Read them. Fix brand, scale and fill **here**: titles ≥ 80 px, the product surface in a show beat covers 40-70% of the frame, text in the product ≥ 28 px after camera scale, nothing is clipped at the frame edge unless it is clearly bleeding off on purpose, the frame looks like the site. Only then animate.
-
-### 5. Build
-- **Use the kit.** `cp -R <skill>/assets/kit src/kit`: a tested camera (`track`, `frameRect`, `breath`), a readable cursor, a browser frame, and a `ScrollPlate` (for a brief glimpse of the real page, not the main material). Copy the images you use into `public/`.
-- **Show beats: rebuild the product's surfaces, or use a real screenshot framed and explained.** For each show beat, rebuild the one UI surface it shows (the composer, the booking card, the inbox) as a component at video scale (a React component in Remotion; a DOM/SVG group in HyperFrames or GSAP): the site's font, colours, radii and real copy from the capture, larger than on the web (body ≥ 28 px, controls ≥ 44 px), with only the parts the beat needs. It can change state (typing, clicking, confirming), which a screenshot can't, and it stays sharp under the camera. A real screenshot also works for a show beat when it is cropped to the part that matters, large, in a device or browser frame, with its title on screen; what fails is a camera panning over full screenshots with no words (in a blind test it lost to a plain build: tiny text, clipped edges, no story).
-- No crossfades between UI states: cut, morph or move the camera. Crossfaded UI leaves ghosted double images.
-- Everything is a function of the frame: no CSS animations, no Math.random or Date.now. Translate with `transform`. Clamp every interpolation. Easing from the kit's `E`, not ad-hoc curves.
-- Fonts: the site's own (bundled from the capture) or system fonts; no network fonts at render time.
-- Typecheck (`npx tsc --noEmit` for Remotion) before every render.
-
-### 6. Render and measure
+### 4. Build from the template film (the default for a 15-20 s product, launch or promo film with two features)
+Start from `assets/kit/Film.tsx`: a finished film shaped brand → problem → (title, then the product) × 2 → proof → brand (19 s, or 17 s without proof), whose motion already passes `scripts/check.py`. **You fill in content; you don't write timing or motion.** If the user asked for a different length, more than two features, a loop, a 9:16 reel or a type-only piece, build it by hand instead (step 5).
 ```bash
-python3 scripts/check.py out/video.mp4 --sheet out/qa/sheet.jpg --first out/qa/first.jpg
+cp -R <skill>/assets/kit src/kit
+cp src/kit/Root.example.tsx.txt src/Root.tsx            # registers the film as "Main"
+cp src/kit/content.example.ts.txt src/content.ts        # then rewrite it for this product
 ```
-It fails a still opening (nothing moves by 0.43 s, or a held first second), a dead hold over 1.6 s, black frames, single-frame flashes, a truncated file, and a file that doesn't match the spec (`--expect 1920x1080@30:20`). It warns (`WARN sparse`) where, for over 0.5 s (the end card excepted), everything on screen fits in under a quarter of the frame. Read the sheet and the first-3-s strip next to the site's contact sheet. Passing check.py proves motion, not beauty, and it doesn't measure the 40-70% bar. `WARN sparse` is expected on the brand beats and on information beats (large type on a designed background covers less than a quarter of the frame by design); act on it only in show beats or for a blank between beats.
+- **`src/content.ts`:** the brand (name, the site's one-line description, the logo copied into `public/`, the background (a hex, or the site's gradient with its main hex in `base`), ink and accent hexes and the font, all from BRIEF.md's Brand look), the problem beat (a title ≤ 6 words, a one-line subtitle), exactly two features (each a title and subtitle), an optional real number for `proof` (leave it out if the site has none: never invent one), and the call to action and URL.
+- **Each feature's `show`:** either a screenshot from the capture (`{ img: 'shot-1.png' }`, copied into `public/`) or, better, a component that rebuilds that product surface at video scale: `const Inbox: Show = ({ frame, w, h }) => ...`, with the site's font, colours and real copy, body text ≥ 28 px, and something changing as `frame` advances (rows arriving, a field typing, a button pressed). `src/kit/ExampleInbox.tsx` shows the shape.
+- Don't edit `src/kit/Film.tsx`'s timing or motion: they are what make the film pass. If the brief needs a different shape (a loop, a 9:16 reel, a type-only sting), build it by hand with the rest of the kit and the rules in `references/motion.md`.
+- **Load the site's font** or the film renders in a fallback: copy the font file from `research/capture/assets/fonts/` into `public/`, then in `src/Root.tsx` call `loadFont({ family: '<Name>', url: staticFile('<file>'), weight: '700' })` from `@remotion/fonts` (`npx remotion add @remotion/fonts`, which matches the project's Remotion version) once per weight, and use the same family name in `content.ts`. No file captured: use the closest system font and note it.
+- Never pass the spec as Remotion `defaultProps` (it is serialised to JSON, which drops the show components): register it the way `Root.example.tsx.txt` does.
+- Typecheck with `npx tsc --noEmit`, then render: `npx remotion render src/index.ts Main out/video.mp4`.
 
-### 7. One review: the builder never grades its own work
-Send the sheet, the first-3-s strip, the site's contact sheet, BRIEF.md, the beat sheet and check.py's output to a **fresh** subagent with the critic prompt in `references/critic.md`. Fix its top 3, re-render, re-run check.py. A second round only if it found something broken (clipped, empty, off-brand, unreadable), not for polish. If you can't spawn a subagent, review the images yourself, writing findings before reading your own code.
+### 5. Custom builds (only when the template doesn't fit)
+- **Remotion is the default engine.** Use another only if the user asks; see `references/engines.md`. **Sound only if the user asks** (`references/sound.md`).
+- **Use the kit.** A tested camera (`track`, `frameRect`, `breath`), a readable cursor, a browser frame, and a `ScrollPlate`. Rebuild each product surface as a component at video scale (body ≥ 28 px, controls ≥ 44 px); a real screenshot works when cropped, large and framed, with its title on screen.
+- **Keep everything moving in check.py's terms:** a slow push or a 2-3% breath reads as frozen. Something visible moves ≥ 3 px per frame, a number counts, or a new element enters at least every 1.5 s; cut every 2-3 s.
+- No crossfades between UI states; everything a function of the frame (no CSS animations, Math.random or Date.now); `transform`, not left/top; clamp every interpolation; easing from the kit's `E`; local fonts only; typecheck before every render.
 
-### 8. Deliver
-The video, the contact sheet, and a short note: what's on screen from the real product, the library reference used (@creator, link), what changed in review, and anything not verified.
+### 6. Render and measure: loop until check.py passes
+```bash
+mkdir -p out/qa && python3 scripts/check.py out/video.mp4 --sheet out/qa/sheet.jpg --first out/qa/first.jpg
+```
+**A FAIL is your next task, not a question for the user.** Fix it in code, re-render, re-run check.py, and repeat until it prints PASS (at most 4 rounds). Never stop to ask "want me to continue?" while a check fails. The usual fixes:
+- *first-change / first-second:* frame 0 already shows the logo or headline mid-move; a large element (≥ 30% of the frame) travels or scales across 0-1 s. A small card fading in doesn't count.
+- *dead-hold:* every hold gets one move big enough to see: a camera push of 8-15% scale, a pan of 60-120 px, a number counting, a line typing, or the next element entering. A 2-3% "breath" is too small to register and reads as frozen.
+- *end card:* the end card keeps building (the URL types on, a button lands, the logo settles) and is 2-3 s long, not 5-7.
+It fails a still opening (nothing moves by 0.43 s, or a held first second), a dead hold over 1.6 s (2.5-3 s on the end card), black frames, single-frame flashes, a truncated file, and a file that doesn't match the spec (`--expect 1920x1080@30:20`). It warns (`WARN sparse`) where, for over 0.5 s (the end card excepted), everything on screen fits in under a quarter of the frame. Read the sheet and the first-3-s strip next to the site's contact sheet. Passing check.py proves motion, not beauty, and it doesn't measure the 40-70% bar. `WARN sparse` is expected on the brand beats and on information beats (large type on a designed background covers less than a quarter of the frame by design); act on it only in show beats or for a blank between beats.
+
+### 7. One review (when you can spawn a subagent)
+Send the sheet, the first-3-s strip, the site's contact sheet, BRIEF.md, the beat sheet and check.py's output to a **fresh** subagent with the critic prompt in `references/critic.md`. Fix its top 3, re-render, re-run check.py. A second round only if it found something broken (clipped, empty, off-brand, unreadable), not for polish. If you can't spawn one, skip this step and say so in the final message; don't stop.
+
+### 8. Deliver: the last message is a report, never a question
+The video path, the contact sheet, and a short note: what's on screen from the real product, the assumptions you made (from BRIEF.md), the library reference used (@creator, link) or that the library was skipped, what changed in review, and any check that still fails after 4 rounds. Don't end with "Want me to…", "Should I…" or "Let me know if…": you're done.
 
 ## Pitfalls seen in real builds
 
@@ -122,4 +137,4 @@ The video, the contact sheet, and a short note: what's on screen from the real p
 
 ## Credit
 
-The workflow, the bans and the measured first-second and hold norms build on Cinetic by Leonxlnx (https://github.com/Leonxlnx/cinetic, MIT). The references come from Oneshotted (https://oneshotted.io): always credit the creators you used.
+The workflow, the bans and the measured first-second and hold norms build on Cinetic by Leonxlnx (https://github.com/Leonxlnx/cinetic, MIT). The engine, sound, timing, camera, logo and critic guides distil about twenty open motion-design projects, credited in each guide and in LICENSE.txt. The references come from Oneshotted (https://oneshotted.io): always credit the creators you used.

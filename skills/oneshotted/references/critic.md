@@ -36,3 +36,13 @@ Review this plan for a <seconds> s video. You did not write it. Check: does it o
 ```
 
 Stop at SHIP or after 2 rounds. Past that, fixes start fighting each other.
+
+## Severity, so the top 3 are the right 3
+Rank findings before choosing what to fix (tiers adapted and modified from motion-design-skill, LottieFiles, MIT). A film built from the template (`Film.tsx`) has fixed timing and motion: judge its content, brand, legibility and screens, not its drift or push.
+- **Critical:** off-brand or unreadable frames; anything clipped or empty; linear easing on a move through space; a state change shown only by opacity; anything travelling more than a third of the frame with no keyframe between; a group stagger longer than 500 ms; a sound hit more than a frame off its picture.
+- **Major:** a cut with no reason; two directions fighting across a cut; text held shorter than its reading time; more than one camera move in a beat.
+- **Minor:** polish. Fix it only after everything above.
+
+## Frames to pull before judging
+Take one frame at every hero moment **and** one in the middle of every transition (`ffmpeg -ss <t> -i out/video.mp4 -frames:v 1 out/qa/t<t>.png`), plus the phone view: one frame a second at 360 px wide (`ffmpeg -i out/video.mp4 -vf "fps=1,scale=360:-1,tile=6x4" -frames:v 1 out/qa/phone.jpg`). Read them all.
+
